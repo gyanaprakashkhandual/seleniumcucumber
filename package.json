@@ -1,9 +1,9 @@
 {
-  "name": "selenium-cucumber-pro",
+  "name": "selenium-cucumber",
   "displayName": "Selenium-Cucumber Pro",
   "publisher": "gyanaprakashkhandual",
   "description": "Professional Selenium Java step definition generator for Cucumber BDD testing with advanced features and code formatting",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "engines": {
     "vscode": "^1.98.0",
     "node": ">=18.0.0"

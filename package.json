@@ -1,9 +1,9 @@
 {
-  "name": "selenium-cucumber",
-  "displayName": "Selenium-Cucumber",
+  "name": "selenium-cucumber-pro",
+  "displayName": "Selenium-Cucumber Pro",
   "publisher": "gyanaprakashkhandual",
   "description": "Professional Selenium Java step definition generator for Cucumber BDD testing with advanced features and code formatting",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "engines": {
     "vscode": "^1.98.0",
     "node": ">=18.0.0"
@@ -272,12 +272,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/GyanaprakashKhandual/VS-Code-Extension-Step-Definition-Generator"
+    "url": "https://github.com/GyanaprakashKhandual/seleniumcucumber"
   },
   "bugs": {
-    "url": "https://github.com/GyanaprakashKhandual/VS-Code-Extension-Step-Definition-Generator/issues"
+    "url": "https://github.com/GyanaprakashKhandual/seleniumcucumber/issues"
   },
-  "homepage": "https://github.com/GyanaprakashKhandual/VS-Code-Extension-Step-Definition-Generator#readme",
+  "homepage": "https://github.com/GyanaprakashKhandual/seleniumcucumber#readme",
   "license": "MIT",
   "author": {
     "name": "Gyana Prakash Khandual",
@@ -314,7 +314,7 @@
   "badges": [
     {
       "url": "https://img.shields.io/badge/PRs-welcome-brightgreen.svg",
-      "href": "https://github.com/GyanaprakashKhandual/VS-Code-Extension-Step-Definition-Generator/blob/main/CONTRIBUTING.md",
+      "href": "https://github.com/gyanaprakashkhandual/seleniumcucumber/blob/main/CONTRIBUTING.md",
       "description": "PRs Welcome"
     }
   ]

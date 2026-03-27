@@ -1,48 +1,97 @@
-# Welcome to your VS Code Extension
+# VS Code Extension Quickstart
 
-## What's in the folder
+Welcome to **Selenium-Cucumber Pro**. This file is a developer reference for anyone working on the extension source code.
 
-* This folder contains all of the files necessary for your extension.
-* `package.json` - this is the manifest file in which you declare your extension and command.
-  * The sample plugin registers a command and defines its title and command name. With this information VS Code can show the command in the command palette. It doesn’t yet need to load the plugin.
-* `src/extension.ts` - this is the main file where you will provide the implementation of your command.
-  * The file exports one function, `activate`, which is called the very first time your extension is activated (in this case by executing the command). Inside the `activate` function we call `registerCommand`.
-  * We pass the function containing the implementation of the command as the second parameter to `registerCommand`.
+---
+
+## Prerequisites
+
+- [Node.js](https://nodejs.org) v18 or later
+- [VS Code](https://code.visualstudio.com) v1.80 or later
+- TypeScript knowledge is helpful but not required
+
+---
 
 ## Setup
 
-* install the recommended extensions (amodio.tsl-problem-matcher, ms-vscode.extension-test-runner, and dbaeumer.vscode-eslint)
+```bash
+git clone https://github.com/gyanaprakashkhandual/seleniumcucumber.git
+cd seleniumcucumber
+npm install
+```
 
+---
 
-## Get up and running straight away
+## Running the Extension Locally
 
-* Press `F5` to open a new window with your extension loaded.
-* Run your command from the command palette by pressing (`Ctrl+Shift+P` or `Cmd+Shift+P` on Mac) and typing `Hello World`.
-* Set breakpoints in your code inside `src/extension.ts` to debug your extension.
-* Find output from your extension in the debug console.
+1. Open the project folder in VS Code
+2. Press `F5` — this launches a new **Extension Development Host** window with the extension loaded
+3. Open any `.feature` file in the new window
+4. Press `Ctrl+Shift+G` to test generation
 
-## Make changes
+Changes to TypeScript source files require a restart of the Development Host (`Ctrl+Shift+F5`) to take effect.
 
-* You can relaunch the extension from the debug toolbar after changing code in `src/extension.ts`.
-* You can also reload (`Ctrl+R` or `Cmd+R` on Mac) the VS Code window with your extension to load your changes.
+---
 
+## Project Structure
 
-## Explore the API
+```
+src/
+  extension.ts        Activation entry point
+  stepGenerator.ts    End-to-end generation pipeline
+  stepParser.ts       Feature file parsing logic
+  codeGenerator.ts    Java source emitter
+  fileManager.ts      File creation and preview
+  quickActions.ts     UI menus and dialogs
+  configuration.ts    Settings management
+  types.ts            Shared interfaces
+```
 
-* You can open the full set of our API when you open the file `node_modules/@types/vscode/index.d.ts`.
+---
 
-## Run tests
+## Key Files
 
-* Install the [Extension Test Runner](https://marketplace.visualstudio.com/items?itemName=ms-vscode.extension-test-runner)
-* Run the "watch" task via the **Tasks: Run Task** command. Make sure this is running, or tests might not be discovered.
-* Open the Testing view from the activity bar and click the Run Test" button, or use the hotkey `Ctrl/Cmd + ; A`
-* See the output of the test result in the Test Results view.
-* Make changes to `src/test/extension.test.ts` or create new test files inside the `test` folder.
-  * The provided test runner will only consider files matching the name pattern `**.test.ts`.
-  * You can create folders inside the `test` folder to structure your tests any way you want.
+| File            | Purpose                                                     |
+| --------------- | ----------------------------------------------------------- |
+| `package.json`  | Extension manifest — commands, keybindings, settings schema |
+| `tsconfig.json` | TypeScript compiler options                                 |
+| `.vscodeignore` | Files excluded from the packaged `.vsix`                    |
+| `esbuild.js`    | Optional bundler config (only needed for production builds) |
 
-## Go further
+---
 
-* Reduce the extension size and improve the startup time by [bundling your extension](https://code.visualstudio.com/api/working-with-extensions/bundling-extension).
-* [Publish your extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension) on the VS Code extension marketplace.
-* Automate builds by setting up [Continuous Integration](https://code.visualstudio.com/api/working-with-extensions/continuous-integration).
+## Useful Commands
+
+```bash
+npm run compile      # Compile TypeScript to JavaScript
+npm run watch        # Watch mode — recompiles on save
+npm run lint         # Run ESLint across all source files
+npm run package      # Bundle and produce a .vsix file
+```
+
+---
+
+## Publishing
+
+To package the extension into a `.vsix` for sharing or marketplace upload:
+
+```bash
+npm install -g @vscode/vsce
+vsce package
+```
+
+To publish directly to the VS Code Marketplace:
+
+```bash
+vsce publish
+```
+
+You will need a Personal Access Token from [Azure DevOps](https://dev.azure.com).
+
+---
+
+## Further Reading
+
+- [VS Code Extension API](https://code.visualstudio.com/api)
+- [Extension Manifest Reference](https://code.visualstudio.com/api/references/extension-manifest)
+- [Publishing Extensions](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)

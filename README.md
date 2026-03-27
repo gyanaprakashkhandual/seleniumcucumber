@@ -1,110 +1,80 @@
-# Selenium-Cucumber Pro Extension
+# Selenium-Cucumber Pro
 
-**Professional Selenium Java step definition generator for Cucumber BDD testing**
+A VS Code extension that generates professional Selenium Java step definitions from Cucumber `.feature` files — instantly.
 
 [![Version](https://img.shields.io/visual-studio-marketplace/v/gyanaprakashkhandual.selenium-cucumber)](https://marketplace.visualstudio.com/items?itemName=gyanaprakashkhandual.selenium-cucumber)
 [![Downloads](https://img.shields.io/visual-studio-marketplace/d/gyanaprakashkhandual.selenium-cucumber)](https://marketplace.visualstudio.com/items?itemName=gyanaprakashkhandual.selenium-cucumber)
-[![Rating](https://img.shields.io/visual-studio-marketplace/r/gyanaprakashkhandual.selenium-cucumber)](https://marketplace.visualstudio.com/items?itemName=gyanaprakashkhandual.selenium-cucumber)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-## Features
+---
 
-###  Advanced Step Generation
+## What It Does
 
-- **Smart Parameter Detection**: Automatically detects quoted strings, numbers, and angle bracket parameters
-- **Professional Code Formatting**: Clean, well-structured Java code with proper indentation
-- **Complete Method Templates**: Includes try-catch blocks, documentation, and Selenium patterns
-- **Duplicate Prevention**: Intelligent duplicate step detection and unique method naming
+Open any Cucumber feature file, run one command, and get a complete, compilable Java step definition class on your clipboard — including annotations, try-catch blocks, parameter handling, and Selenium scaffolding.
 
-###  Multiple Generation Options
+---
 
-- **Selection-based Generation**: Generate from selected text or entire file
-- **Quick Actions Menu**: Easy access to all features via status bar
-- **File Creation**: Create new step definition files directly
-- **Clipboard Integration**: Automatic copying to clipboard
-
-###  Extensive Configuration
-
-- **Package & Class Names**: Customizable package and class naming
-- **Framework Support**: Cucumber, TestNG, and JUnit support
-- **Import Management**: Custom import statements
-- **Code Style Options**: Multiple formatting and naming conventions
-
-### 🔧 Professional Features
-
-- **Error Handling**: Comprehensive error handling and validation
-- **Context Menu Integration**: Right-click options in feature files
-- **Keyboard Shortcuts**: Quick access via customizable shortcuts
-- **Progress Indicators**: Visual feedback during generation
-
-## 📦 Installation
+## Installation
 
 1. Open VS Code
-2. Go to Extensions (`Ctrl+Shift+X`)
-3. Search for "Selenium-Cucumber Pro"
-4. Click Install
+2. Go to the Extensions panel (`Ctrl+Shift+X`)
+3. Search for **Selenium-Cucumber Pro**
+4. Click **Install**
 
-## 🎮 Usage
+---
 
-### Quick Start
+## Quick Start
 
-1. Open a Cucumber `.feature` file
-2. Click the "🥒 Cucumber Steps" button in the status bar
-3. Select "Generate Step Definitions"
-4. Your step definitions are copied to clipboard!
+1. Open a `.feature` file
+2. Press `Ctrl+Shift+G` or click **Cucumber Steps** in the status bar
+3. Choose **Generate Step Definitions**
+4. Paste into your Java project
 
-### Available Commands
+---
 
-| Command                   | Shortcut       | Description                            |
-| ------------------------- | -------------- | -------------------------------------- |
-| Generate Step Definitions | `Ctrl+Shift+G` | Generate from entire file or selection |
-| Quick Actions             | `Ctrl+Shift+Q` | Open quick actions menu                |
-| Generate from Selection   | `Ctrl+Shift+S` | Generate only from selected text       |
+## Commands
 
-### Context Menu Options
+| Command                   | Shortcut       | Description                                        |
+| ------------------------- | -------------- | -------------------------------------------------- |
+| Generate Step Definitions | `Ctrl+Shift+G` | Generate from the entire file or current selection |
+| Quick Actions             | `Ctrl+Shift+Q` | Open the actions menu                              |
+| Generate from Selection   | `Ctrl+Shift+S` | Generate only from selected steps                  |
 
-- Right-click in `.feature` files for quick access
-- Generate from selection when text is selected
-- Explorer context menu for feature files
+Right-click inside any `.feature` file for context menu access to all commands.
 
-## 🔧 Configuration
+---
 
-Access settings via `File > Preferences > Settings` and search for "Cucumber":
+## Configuration
 
-### Basic Settings
+Open Settings (`Ctrl+,`) and search for `Cucumber`, or use the **Configure Settings** action in the Quick Actions menu.
 
 ```json
 {
   "cucumberStepGen.packageName": "com.example.stepdefinitions",
   "cucumberStepGen.className": "StepDefinitions",
-  "cucumberStepGen.framework": "cucumber"
-}
-```
-
-### Advanced Settings
-
-```json
-{
+  "cucumberStepGen.baseTestClass": "BaseTest",
+  "cucumberStepGen.framework": "cucumber",
   "cucumberStepGen.generateComments": true,
   "cucumberStepGen.generateTryCatch": true,
-  "cucumberStepGen.methodNamingConvention": "camelCase",
-  "cucumberStepGen.autoDetectParameters": true,
-  "cucumberStepGen.outputFormat": "formatted"
+  "cucumberStepGen.methodNamingConvention": "camelCase"
 }
 ```
 
-##  Example Output
+---
 
-### Input (Cucumber Feature)
+## Example
+
+**Input — feature file**
 
 ```gherkin
-Feature: Login functionality
+Feature: Login
   Scenario: Successful login
     Given I am on the login page
-    When I enter username "testuser" and password "password123"
+    When I enter username "admin" and password "secret"
     Then I should see the dashboard
 ```
 
-### Generated Output
+**Output — generated Java**
 
 ```java
 package com.example.stepdefinitions;
@@ -113,8 +83,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 
 /**
@@ -125,35 +93,19 @@ public class StepDefinitions {
 
     private WebDriver driver;
 
-    /**
-     * Step: Given I am on the login page
-     */
     @Given("^I am on the login page$")
     public void iAmOnTheLoginPage() {
         try {
-            // TODO: Implement step logic for: I am on the login page
-            // Setup/precondition logic
-            // driver.get("URL");
+            // TODO: driver.get("URL");
         } catch (Exception e) {
             throw new RuntimeException("Failed to execute step", e);
         }
     }
 
-    /**
-     * Step: When I enter username "testuser" and password "password123"
-     * Parameters: 2
-     */
     @When("^I enter username \"(.*?)\" and password \"(.*?)\"$")
     public void iEnterUsernameAndPassword(String param1, String param2) {
         try {
-            // TODO: Implement step logic
-            // Available parameters:
-            //   String param1
-            //   String param2
-
-            // Action/interaction logic
-            // WebElement inputField = driver.findElement(By.id("inputId"));
-            // inputField.sendKeys("value");
+            // TODO: implement login logic
         } catch (Exception e) {
             throw new RuntimeException("Failed to execute step", e);
         }
@@ -161,118 +113,44 @@ public class StepDefinitions {
 }
 ```
 
-## Advanced Features
+---
 
-### Parameter Detection
+## Parameter Detection
 
-The extension automatically detects:
+The extension automatically detects and converts:
 
-- **Quoted strings**: `"example"` → `"(.*?)"`
-- **Numbers**: `123` → `(\\d+)`
-- **Angle brackets**: `<username>` → `(.*)`
-
-### Code Templates
-
-Smart templates based on step types:
-
-- **Given steps**: Setup and precondition patterns
-- **When steps**: Action and interaction patterns
-- **Then steps**: Assertion and verification patterns
-
-### Helper Methods
-
-Generated classes include utility methods:
-
-```java
-private WebElement findElementWithWait(By locator) {
-    return wait.until(driver -> driver.findElement(locator));
-}
-
-private boolean isElementDisplayed(By locator) {
-    try {
-        return driver.findElement(locator).isDisplayed();
-    } catch (Exception e) {
-        return false;
-    }
-}
-```
-
-## Supported Step Patterns
-
-The extension recognizes these Cucumber keywords:
-
-- `Given` - Setup/preconditions
-- `When` - Actions/interactions
-- `Then` - Assertions/verifications
-- `And` - Continuation steps
-- `But` - Negative conditions
-
-## Code Snippets
-
-The extension includes helpful code snippets:
-
-- `given` - Generate Given step template
-- `when` - Generate When step template
-- `then` - Generate Then step template
-- `cucumberClass` - Full step definition class
-- `pageObject` - Page Object Model template
-
-## Troubleshooting
-
-### Common Issues
-
-**No steps generated?**
-
-- Ensure steps start with `Given`, `When`, `Then`, or `And`
-- Check that the file contains valid Cucumber syntax
-
-**Invalid method names?**
-
-- The extension automatically sanitizes method names
-- Special characters are removed or converted
-
-**Configuration not working?**
-
-- Restart VS Code after changing settings
-- Check settings format matches examples
-
-### Error Messages
-
-| Message                         | Solution                            |
-| ------------------------------- | ----------------------------------- |
-| "No active editor found"        | Open a file in the editor           |
-| "No valid Cucumber steps found" | Check step syntax (Given/When/Then) |
-| "Package name must be valid"    | Use valid Java package format       |
-
-## Contributing
-
-We welcome contributions! Please see our [Contributing Guide](https://github.com/GyanaprakashKhandual/VS-Code-Extension-Step-Definition-Generator/blob/main/CONTRIBUTING.md).
-
-### Development Setup
-
-1. Clone the repository
-2. Run `npm install`
-3. Open in VS Code
-4. Press `F5` to launch extension development host
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-##  Acknowledgments
-
-- Cucumber community for the amazing BDD framework
-- Selenium team for web automation tools
-- VS Code team for the excellent extension API
-
-##  Support
-
-- **Issues**: [GitHub Issues](https://github.com/GyanaprakashKhandual/VS-Code-Extension-Step-Definition-Generator/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/GyanaprakashKhandual/VS-Code-Extension-Step-Definition-Generator/discussions)
-- **Email**: gyanaprakashkhnadual@gmail.com
+- `"quoted strings"` → `"(.*?)"` → `String param`
+- `<angle brackets>` → `(.*)` → `String tokenName`
+- `123` bare numbers → `(\\d+)` → `int number`
 
 ---
 
-**Happy Testing! 🧪✨**
+## Project Structure
 
-Made with ❤️ by [Gyana Prakash Khandual](https://github.com/GyanaprakashKhandual)
+```
+src/
+  extension.ts        Entry point — registers commands and status bar
+  stepGenerator.ts    Orchestrates the full generation pipeline
+  stepParser.ts       Parses feature file text into structured data
+  codeGenerator.ts    Emits Java source from structured data
+  fileManager.ts      File I/O and output preview
+  quickActions.ts     Quick Actions menu and About dialog
+  configuration.ts    Reads and writes workspace settings
+  types.ts            Shared TypeScript interfaces
+```
+
+---
+
+## Contributing
+
+Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
+
+---
+
+## License
+
+MIT — see [LICENSE](LICENSE) for details.
+
+---
+
+Made by [Gyana Prakash Khandual](https://github.com/gyanaprakashkhandual) · [GitHub](https://github.com/gyanaprakashkhandual/seleniumcucumber) · [Report an Issue](https://github.com/gyanaprakashkhandual/seleniumcucumber/issues)
